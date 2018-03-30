@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^searching_help/?$', views.searching_help), 
     url(r'^logout/?$', views.logout),
     url(r'^profile/(?P<id>\d+)?$', views.profile),
+    url(r'^map/?$', views.map)
 ]

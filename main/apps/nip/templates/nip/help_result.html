@@ -1,70 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Search results!</title>
-	<link rel="stylesheet" type="text/css" href="../../static/help_search.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nip/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <link rel="stylesheet" href="../../static/nip/style.css">
+
 <style>
-	* {
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    }
-	.profile, .logout {
-        display: inline;
-		margin-right:20px;
-    }
-	.home{
-        margin-left: 600px;
-        margin-right:20px;
-    }
-	h1 {
-        margin-right: 500px;
-    }
-	.header {
-        height: 30px;
-        display: inline-block;
-        vertical-align: top;
-        padding:30px;
-    }
-    .logo{
-        height:90px;
-    }
 	.profile_pic{
-        height:100px;
-        margin-top:10px;
-    }
-	 .main_content{
-        /* width:700px; */
-        margin-top:50px;
-        margin-left:300px;
-    }
-	.search_result{
-		display: inline-block;
-		text-align: center;
-		vertical-align: middle;
-		line-height: 90px;
-		position: absolute;
-		margin-left:20px;
+	
+		margin-top: 10px;
+		margin-bottom: 10px;
+		height: 100px;
+		width: 100px;
 	}
-	.results{
-		height:100px;
+	.link{
+		margin: 0 0 0 0;
+	}
+	 .left-LOGO1{
+        margin: -55px 0px 0px -35px;
+}
+    .header1{
+    margin: 0px 0 0 0;
+    height: 65px;
+	}
+	.main_content-2{
+		margin: 55px 0 0 75px;
+		
+	}
+	.main_content-2 h3{
+		font-size: 1.5em;
+		
 	}
 </style>
+</head>
 <body>
-	<img class="logo" src="https://mir-cdn.behance.net/v1/rendition/project_modules/disp/70702f63826029.5abd519e04f31.png" alt="nip_logo"
-	/>
-	<div class="header">
-			<a class="home" href="#" class="main">Home</a>
-			<a class="profile" href="#">Profile</a>
-			<a class="logout" href="#">Logout</a>
-	</div>
+		<div class="header header1">
+                <div class="left-LOGO left-LOGO1">
+                    <a href="/home"><img class="logo" src="https://mir-cdn.behance.net/v1/rendition/project_modules/disp/70702f63826029.5abd519e04f31.png" alt="nip_logo" /></a>
+                </div>
+                <div class="right-boxes">
+                        <div class="logout-button">
+                                <a href="/map">Map</a>
+                            </div>
+                        <div class="profile-button">
+                            <a href="/profile/{{request.session.id}}">Profile</a>
+                        </div>
+                        <div class="logout-button">
+                            <a href="/logout">Logout</a>
+                        </div>
+                    </div>
+            </div>
 
-	<div class="main_content">
+	<div class="main_content-2">
 		<h3>Ninjas who can help you with {{skill}}</h3>
 		<div class="results">
 			{% for user in users %}
 			<div >
 				<img class="profile_pic" src="{{user.image}}" alt="profile_pic">
-				<a href="/profile/{{user.id}}">{{user.first_name|title}} {{user.last_name|title}}</a>
+				<a href="/profile/{{user.id}}" class="link">{{user.first_name|title}} {{user.last_name|title}}</a>
 				
 			</div>
 			{% endfor %}

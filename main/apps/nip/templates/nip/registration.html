@@ -9,22 +9,44 @@
     <link rel="stylesheet" href="../../static/nip/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Registration: NIP</title>
+    <style>
+    .left-LOGO1{
+        margin: -55px 0px 0px -35px;
+}
+    .header1{
+    margin: 0px 0 0 0;
+    height: 65px;
+    }
+    .main-content h2{
+        margin: 0px 0px 40px 0;
+        font-size: 2em;
+    }
+    .form input{
+        margin: 15px;
+    }
+    .main-content{
+        margin-left: 100px;
+    }
+    </style>
 </head>
 <body>
     <div class="wrapper">
-        <div class="header">
-            <div class="left-LOGO">
-                <p>NIP</p>
-            </div>
-            <div class="right-boxes">
-                <div class="profile-button">
-                    <a href="#">Profile</a>
+            <div class="header header1">
+                    <div class="left-LOGO left-LOGO1">
+                        <a href="/home"><img class="logo" src="https://mir-cdn.behance.net/v1/rendition/project_modules/disp/70702f63826029.5abd519e04f31.png" alt="nip_logo" /></a>
+                    </div>
+                    <div class="right-boxes">
+                            <div class="logout-button">
+                                    <a href="/map">Map</a>
+                                </div>
+                            <div class="profile-button">
+                                <a href="/profile/{{request.session.id}}">Profile</a>
+                            </div>
+                            <div class="logout-button">
+                                <a href="/logout">Logout</a>
+                            </div>
+                        </div>
                 </div>
-                <div class="logout-button">
-                    <a href="#">Logout</a>
-                </div>
-            </div>
-        </div>
         <div class="main-content">
             <h2>Just a few quick questions...</h2>
             {% if messages %}
@@ -32,7 +54,7 @@
                 <p>{{message}}</p>
             {%endfor%}
             {%endif%}
-            <form method="post" action="/socials_process">
+            <form method="post" action="/socials_process" class='form'>
                 {% csrf_token %}
                 Who are you?
                 <input type="radio" class="radioButton" name="type">
@@ -41,21 +63,29 @@
                     Student
                 <br>
                 What are your socials? (paste links to profiles)
+                <br>
                 LinkedIn <input type="text" name="linkedin">
+                <br>
                 Facebook <input type="text" name="facebook">
+                <br>
                 GitHub <input type="text" name="github">
+                <br>
                 Slack <input type="text" name="slack">
+                <br>
                 Instagram <input type="text" name="instagram">
+                <br>
                 Twitter <input type="text" name="twitter">
                 <br>
                 Would you be willing and available to help other students?
+                <br>
                 <input type="radio" class="radioButton" name="help" value="yes">
-                    Yes
+                Yes
                <input type="radio" class="radioButton" name="help" value="no"> 
                 No
                 <br>
-                <input type="submit" name="submit" value="Click here to move on">
+                <input type="submit" name="submit" value="Move On!" class="button">
             </form>
+    </div>
     </div>
 </body>
 </html>

@@ -123,7 +123,7 @@ def searching_user(request):
 def searching_help(request):
 	if not 'id' in request.session:
 		return redirect('/')
-	strength = Skill.objects.filter(name=request.POST['tutor_search'])
+	strength = Skill.objects.filter(name__icontains=request.POST['tutor_search'])
 	context = {
 		'users': User.objects.filter(strengths=strength),
 		'skill': request.POST['tutor_search']
@@ -142,3 +142,6 @@ def logout(request):
 
 	request.session.clear()
 	return redirect('/')
+
+def map(request):
+	return	render(request,'nip/map.html')

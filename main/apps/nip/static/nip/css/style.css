@@ -13,28 +13,34 @@
    }
 .header {
     background-color: white;
-    height: 65px;
+    height: 50px;
     padding:15px;
     border-bottom: 1px solid black;
 }
-.header form{
+.main-content{
+  margin: 85px 0 0 0;
+}
+.header-form{
     display: inline-block;
     float: right;
     margin-top: 15px;
     margin-right: 10px;
 }
+.left-LOGO {
+  margin: -55px 0px 0px -87px;
+  position: absolute;
+}
 .login-main{
     margin-top: 100px;
 }
 .login-main h1 {
-    color: white;
-    font-size: 3em;
-    margin: 50px 0px 20px 460px;
+  font-size: 3em;
+  margin: 50px 0px 20px 425px;
 }
 .login-main h3{
-    color: white;
+   
     font-size: 1.5em;
-    margin: 0 0 100px 537px;
+    margin: 0 0 100px 525px;
 }
 .FNAME, .LNAME{
     color: grey;
@@ -57,7 +63,7 @@
 .FORM{
     margin-left: 415px;
 }
-
+/* 
 .btn {
     background: #3498db;
     width: 180px;
@@ -68,7 +74,7 @@
     border-radius: 50%;
     transform: translateX(-50%) translateY(-50%);
     border-radius: 3px;
-  }
+  } */
 
 
 
@@ -78,7 +84,7 @@
  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 
 /* General Buttons */
-button {
+.button {
   width: 130px;
   height: 40px;
   background: linear-gradient(to bottom, #4eb5e5 0%,#389ed5 100%); /* W3C */
@@ -91,7 +97,6 @@ button {
   font-family: 'Open Sans', sans-serif;
   text-shadow: 1px 1px 1px rgba(0,0,0,.4);
   font-size: 15px;
-  text-align: left;
   text-indent: 5px;
   box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
   cursor: pointer;
@@ -101,12 +106,12 @@ button {
   margin: 0 auto;
   margin-bottom: 20px;
 }
-button:active {
+.button:active {
   box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
   top: 1px;
 }
 
-button:after {
+.button:after {
   content: "";
   width: 0;
   height: 0;
@@ -124,12 +129,12 @@ button:after {
 
 /* Button pointing left */
 
-button.back {
+.button.back {
   text-align: right;
   padding-right: 12px;
   box-sizing: border-box;
 }
-button.back:after {
+.button.back:after {
   content: "";
   width: 0;
   height: 0;
@@ -147,12 +152,12 @@ button.back:after {
 
 /* Single buttons */
 
-button.site {
+.button.site {
   width: 40px;
   text-align: center;
   text-indent: 0;
 }
-button.site:after{
+.button.site:after{
   display: none;
 }
 
@@ -180,11 +185,6 @@ h1 {
 
 
 
-
-.left-LOGO {
-    display: inline-block;
-    font-size: 50px;
-}
 .right-boxes{
     display: inline-block;
     float: right;
@@ -252,12 +252,13 @@ h1 {
   }
 
   .box {
-      
+    margin-top: 100px;
+    margin-bottom: 30px;
     display: inline-block;
     vertical-align: top;
     height: auto;
     width: 30%;
-    margin-left: 12px;
+    margin-left: 24px;
     margin-right: 12px;
     /* background-color: orangered; */
     border: 2px solid silver;
@@ -272,8 +273,30 @@ h1 {
     padding: 9px 0 0 7px;
 }
 .strength-icons img{
-    background-color: black;
-    height: 50px;
-    width: 50px;
+    /* background-color: black; */
+    margin-left: 10px;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
 }
-  
+.strength-icons input{
+  display: block;
+  position: relative;
+  padding: 5px;
+  margin-left: 300px;
+}
+ .availability{
+
+   font-size: 1.2em;
+   margin-top: 100px;
+   margin-top: 100px;
+    padding: 5px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+ }
+ .test{
+  display: inline-block;
+  position: absolute;
+  margin: 10px 0px 0px 10px;
+ }
+

@@ -1,19 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Ninja profile: {{user.first_name|title}} {{user.last_name|title}}</title>
-	<link rel="stylesheet" type="text/css" href="../../static/profile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nip/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <link rel="stylesheet" href="../../static/nip/style.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        $( document ).ready(function() {
+            console.log( "ready!" );
+            });
+    </script>
+	<title>Strengths: NIP</title>
+	<style>
+	 .left-LOGO1{
+        margin: -55px 0px 0px -35px;
+}
+    .header1{
+    margin: 0px 0 0 0;
+    height: 65px;
+	}
+	.main_img{
+		margin-top: 20px;
+		margin-left: 60px;
+		margin-bottom: 5px;
+		height: 200px;
+		width: 200px;
+	}
+	.left_side h3{
+		font-size: 2em;
+		margin: 50px 10px 10px 65px;
+	}
+	.content{
+		margin: 40px 0 0 75px;
+	}
+	.strengths{
+		margin: 40px 0 0 75px;
+	}
+	.whole{
+		margin: 0 0 0 0;
+	}
+	</style>
 </head>
 <body>
-	<div class="header">
-	<h3>NIP(Logo)</h3>
-	<a href="/home" class="main">Home</a>
-	<a href="/profile/{{request.session.id}}">Profile</a>
-	<a href="/logout">Logout</a>
-	</div>
+		<div class="header header1">
+                <div class="left-LOGO left-LOGO1">
+                    <a href="/home"><img class="logo" src="https://mir-cdn.behance.net/v1/rendition/project_modules/disp/70702f63826029.5abd519e04f31.png" alt="nip_logo" /></a>
+                </div>
+                <div class="right-boxes">
+                        <div class="logout-button">
+                                <a href="/map">Map</a>
+                            </div>
+                        <div class="profile-button">
+                            <a href="/profile/{{request.session.id}}">Profile</a>
+                        </div>
+                        <div class="logout-button">
+                            <a href="/logout">Logout</a>
+                        </div>
+                    </div>
+            </div>
+			<div class="whole">
 	<div class="left_side">
 		<h3>{{user.first_name|title}} {{user.last_name|title}}</h3>
 		<img src="{{user.image}}" class="main_img">
+
+		<div class="content">
 		<p>My socials:</p>
 		<a href="{{user.email}}">{{user.email|title}}</a>
 		<br>
@@ -22,6 +78,7 @@
 		<a href="{{user.facebook}}">{{user.facebook|title}}</a> <br>
 		<a href="{{user.instagram}}">{{user.instagram|title}}</a> <br>
 		<a href="{{user.slack}}">Slack</a> <br>
+	</div>
 	</div>
 		<div class="strengths">
 		{% if user.strengths %}
@@ -33,6 +90,6 @@
 			</ol>
 		{% endif %}
 		</div>
-
+</div>
 </body>
 </html>

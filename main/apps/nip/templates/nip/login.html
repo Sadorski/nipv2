@@ -1,30 +1,30 @@
 <!DOCTYPE html>
  <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <!-- {% load static %}
-     <link rel="stylesheet" href="{% static 'nip/css/style.css' %}" media="screen" title="no title"  charset="utf-8"> -->
-     <link rel="stylesheet" href="../../static/nip/css/style.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/Buttons/2.0.0/css/buttons.css"></script>
-     <title>Welcome Ninjas!</title>
- </head>
+<head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                {% load static %}
+                <link rel="stylesheet" href="{% static 'nip/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+                <!-- <link rel="stylesheet" href="../../static/nip/css/style.css"> -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Buttons/2.0.0/css/buttons.css"></script>
+                <title>Welcome Ninjas!</title>
+</head>
  <body>
      <div class="wrapper">
         <div class=header>
-             <div class="left-LOGO">
-                 <p>NIP</p>
+            <div class="left-LOGO">
+                <img class="logo" src="https://mir-cdn.behance.net/v1/rendition/project_modules/disp/70702f63826029.5abd519e04f31.png" alt="nip_logo" />
             </div>
-            <form action="/login" method="post">
+            <form action="/login" method="post" class="header-form">
                 {% csrf_token %}
                 <input type="hidden" name="action" value="login">
                 <label for="email">email:</label>
                 <input type="text" name="email">
                 <label for="password">password:</label>
                 <input type="password" name="password">
-                <input type="submit" name="submit" value="login">
+                <input type="submit" name="submit" value="login" class="btn">
             </form>
         <div class=login-main>
             <h1>Welcome Ninjas!</h1>
@@ -45,7 +45,7 @@
                     <input type="text" name="email" value="email address" class="EMAIL">
                     <input type="password" name="password" value="password" class="PASSWORD">
                     <input type="password" name="confirm" value="confirm password" class="PASSWORD2">
-                    Profile picture: <input type="text" name="picture">
+                    <input type="text" name="picture" value="facebook profile pic url" class="PASSWORD2">
                 </div>
                 <input class="button" type="submit" name="submit" value="Create Account">
             </form>

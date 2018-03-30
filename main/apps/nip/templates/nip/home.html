@@ -2,95 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NIP</title>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nip/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <link rel="stylesheet" href="../../static/nip/style.css">
+
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     $('#who').click(function () {
         $('.site_search_who').toggle("slow"); 
     });
 </script>
 <style>
-    *{
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    .left-LOGO1{
+        margin: -55px 0px 0px -35px;
+}
+    .header1{
+    margin: 0px 0 0 0;
+    height: 65px;
     }
-    .profile, .logout {
-        display: inline;
+    .main-content-home{
+        margin: 55px 0 0 0;
     }
-    .profile{
-        margin-left: 600px;
-        margin-right:40px;
+    .welcome h1{
+        font-size: 2em;
+        color: black;
+        font-family: arial;
+        
     }
-   .header {
-        height: 30px;
-        display: inline-block;
-        vertical-align: top;
-        padding:30px;
-    }
-  .logo{
-        height:90px;
-    }
-    .choose{
-        /* width: 180px; */
-        height: 90px;
-        display:inline-block;
-        vertical-align: top;
-        text-align:center;
-        margin-left:110px;
-    }
-    h1, h2{
-        display: inline-block;
-    }
-    h1{
-        margin-right: 600px;
-    }
-    h4{
-        margin:15px;    
-    }
-    #who, #what{
-        border: transparent;
-        display: inline-block;
-        padding: 10px;
-        font-size: 30px;
-        margin: 100px;
-    }
-   .submit{
-        display:block;
-        margin-left:450px;
-        margin-top: 20px;
-        padding: 10px;
-        border-radius:10px;
-        font-size: 30px;
-    }
-    .wrapper{
-        text-align: center;
-    }
+   .welcome h2{
+       font-size: 1.5em;
+       margin-bottom: 30px;
+   }
 </style>
+</head>
 <body>
-    <img class="logo" src="https://mir-cdn.behance.net/v1/rendition/project_modules/disp/70702f63826029.5abd519e04f31.png" alt="nip_logo"
-    />
-    <div class="header">
-        <a class="profile" href="#">Profile</a>
-        <a class="logout" href="#">Logout</a>
-    </div>
+        <div class="header header1">
+                <div class="left-LOGO left-LOGO1">
+                    <a href="/home"><img class="logo" src="https://mir-cdn.behance.net/v1/rendition/project_modules/disp/70702f63826029.5abd519e04f31.png" alt="nip_logo" /></a>
+                </div>
+                <div class="right-boxes">
+                        <div class="logout-button">
+                                <a href="/map">Map</a>
+                            </div>
+                        <div class="profile-button">
+                            <a href="/profile/{{request.session.id}}">Profile</a>
+                        </div>
+                        <div class="logout-button">
+                            <a href="/logout">Logout</a>
+                        </div>
+                    </div>
+            </div>
     <div class="wrapper">
+        <div class="main-content-home">
         <div class="welcome">
-            <h3> Welcome, {{user.first_name}}</h3>
-            <h3 class="question">One Simple Question: What do you need?</h3>
+            <h1> Welcome, {{request.session.first_name |title}}</h1>
+            <h2 class="question">One Simple Question: What do you need?</h2>
         </div>
         <div class = "site_search_who">
                 <form action='/user_search' method='post'>
                     {% csrf_token %}
                     <!-- <input type="search" name="tutor_search" class="search_bar" size="100"> -->
-                    <input type="submit" name='submit' value='Find Someone'>
+                    <input type="submit" name='submit' value='Find Someone' class="button">
                 </form>
             </div>
         
             <div class = "site_search_what">
                 <form action='/help_search' method='post'>
                     {% csrf_token %}
-                    <input type="submit" name='submit' value='Need help'>
+                    <input type="submit" name='submit' value='Need help' class="button">
                 </form>
             </div>
+        </div>
     </div>
 </body>
 </html>
