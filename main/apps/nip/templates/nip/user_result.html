@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NIP</title>
+</head>
+<style>
+    * {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .email {
+        display: inline-block;
+        margin-left: 50px;
+        /* margin-top: 20px; */ 
+        width: 90px;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 20px;
+    } 
+    .profile, .logout {
+        display: inline;
+    }
+    .profile{
+        margin-left: 600px;
+        margin-right:40px;
+    }
+    h1 {
+        margin-right: 500px;
+    }
+    h4,img {
+        display: inline-block;
+    }
+    .header {
+        height: 30px;
+        display: inline-block;
+        vertical-align: top;
+        padding:30px;
+    }
+    .logo{
+        height:90px;
+    }
+    .main_content{
+        /* width:700px; */
+        margin-top:50px;
+        margin-left:300px;
+    }
+    .profile_pic{
+        height:100px;
+        margin-top:10px;
+    }
+    .user_name{
+        display:inline-block;
+        vertical-align: top;
+    }
+    .search_result{
+        display: inline-block;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 90px;
+		position: absolute;
+		margin-left:20px;
+    }
+</style>
+
+<body>
+    
+    <img class="logo" src="https://mir-cdn.behance.net/v1/rendition/project_modules/disp/70702f63826029.5abd519e04f31.png" alt="nip_logo"
+    />
+    <div class="header">
+        <a class="home" href="#" class="main">Home</a>
+        <a class="profile" href="#">Profile</a>
+        <a class="logout" href="#">Logout</a>
+    </div>
+    <div class="main_content">
+        <h3>Search Results: Find Someone</h3>
+
+        <!-- JUST FOR SHOW -->
+        <div class="results"></div>
+        <img class="profile_pic" src="https://www.shareicon.net/data/128x128/2016/07/10/119669_people_512x512.png" alt="profile_pic">
+            <p class="search_result"> <a href="user.profile">Sample Sampleton</a>
+            <button type="submit" class="email" name="email">Email</button>
+        </div>
+        {% for profile in results %}
+        <div class="search_result">
+            <img class="profile_pic" src="{{user_profile_pic}}" alt="profile_pic">
+            <h4>
+                <a href="user.profile">{{search.tutor.first_name}} {{search.tutor.last_name}}</a>
+            </h4>
+            <button type="submit" class="email" name="email">Email</button>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

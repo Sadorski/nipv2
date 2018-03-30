@@ -1,0 +1,53 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.header {
+	width: 1000px;
+	height: 100px;
+	background-color: pink;
+}
+
+.header h3 {
+	display: inline-block;
+	font-size: 75px;
+}
+
+.header a {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.body {
+	width: 800px;
+	border: solid;
+	margin-left: 100px;
+}
+
+.body h3 {
+	margin-left: 10px;
+}
+
+img {
+	height: 100px;
+}
+
+.search_result {
+	border: solid;
+}
+
+.search_result p {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 40px;
+}
+
+.search_result a {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 500px;
+	margin-top: 40px;
+}
+
+

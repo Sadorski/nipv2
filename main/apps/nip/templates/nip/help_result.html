@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search results!</title>
+	<link rel="stylesheet" type="text/css" href="../../static/help_search.css">
+</head>
+<style>
+	* {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+	.profile, .logout {
+        display: inline;
+		margin-right:20px;
+    }
+	.home{
+        margin-left: 600px;
+        margin-right:20px;
+    }
+	h1 {
+        margin-right: 500px;
+    }
+	.header {
+        height: 30px;
+        display: inline-block;
+        vertical-align: top;
+        padding:30px;
+    }
+    .logo{
+        height:90px;
+    }
+	.profile_pic{
+        height:100px;
+        margin-top:10px;
+    }
+	 .main_content{
+        /* width:700px; */
+        margin-top:50px;
+        margin-left:300px;
+    }
+	.search_result{
+		display: inline-block;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 90px;
+		position: absolute;
+		margin-left:20px;
+	}
+	.results{
+		height:100px;
+	}
+</style>
+<body>
+	<img class="logo" src="https://mir-cdn.behance.net/v1/rendition/project_modules/disp/70702f63826029.5abd519e04f31.png" alt="nip_logo"
+	/>
+	<div class="header">
+			<a class="home" href="#" class="main">Home</a>
+			<a class="profile" href="#">Profile</a>
+			<a class="logout" href="#">Logout</a>
+	</div>
+
+	<div class="main_content">
+		<h3>Ninjas who can help you in {TIME} for {PROBLEM}</h3>
+		<div class="results">
+			<div >
+				<img class="profile_pic" src="http://www.thelaunchpod.com/wp-content/uploads/2015/02/circular-headshot-.png" alt="profile_pic">
+				<p class="search_result">{NAME} <a href="#">Contact</a></p>
+				
+			</div>
+		</div>
+			<!-- <div class="search_result">
+				<img class="profile_pic"src="http://www.thelaunchpod.com/wp-content/uploads/2015/02/circular-headshot-.png">
+				<p>{NAME}</p>
+				<a href="#">Contact</a>
+			</div> -->
+	
+</body>
+</html>

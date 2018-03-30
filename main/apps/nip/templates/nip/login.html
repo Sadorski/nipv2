@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <!-- {% load static %}
+     <link rel="stylesheet" href="{% static 'nip/css/style.css' %}" media="screen" title="no title"  charset="utf-8"> -->
+     <link rel="stylesheet" href="../../static/nip/css/style.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Buttons/2.0.0/css/buttons.css"></script>
+     <title>Welcome Ninjas!</title>
+ </head>
+ <body>
+     <div class="wrapper">
+        <div class=header>
+             <div class="left-LOGO">
+                 <p>NIP</p>
+            </div>
+            <form action="/login" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="login">
+                <label for="email">email:</label>
+                <input type="text" name="email">
+                <label for="password">password:</label>
+                <input type="password" name="password">
+                <input type="submit" name="submit" value="login">
+            </form>
+        <div class=login-main>
+            <h1>Welcome Ninjas!</h1>
+            <h3>Make a free account</h3>   
+            {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {%endfor%}
+            {%endif%}
+            <form action="/new_user" method="POST" class="FORM">
+                {% csrf_token %}
+                <input type=hidden name=action value=reg>
+                <div class="NAME">
+                    <input type="text" name="first_name" value="first name" class="FNAME">
+                    <input type="text" name="last_name" value="last name" class="LNAME">
+                </div>
+                <div class="EMAIL-PASSWORDS">
+                    <input type="text" name="email" value="email address" class="EMAIL">
+                    <input type="password" name="password" value="password" class="PASSWORD">
+                    <input type="confirm" name="confirm" value="confirm password" class="PASSWORD2">
+                    Profile picture: <input type="text" name="picture">
+                </div>
+                <input class="button" type="submit" name="submit" value="Create Account">
+            </form>
+        </div>
+
+    </div>
+</div>  
+</body>
+</html>

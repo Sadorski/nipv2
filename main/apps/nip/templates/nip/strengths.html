@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nip/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <link rel="stylesheet" href="../../static/nip/style.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        $( document ).ready(function() {
+            console.log( "ready!" );
+            });
+    </script>
+    <title>Strengths: NIP</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="left-LOGO">
+                <p>NIP</p>
+            </div>
+            <div class="right-boxes">
+                <div class="profile-button">
+                    <a href="#">Profile</a>
+                </div>
+                <div class="logout-button">
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="availability">
+            <p>What is your availability?</p>
+            <form action="#" method="POST">
+                Dates:<input type="date" class="date">
+                <input type="checkbox" class="radioButton" name="morning">
+                    Mornings
+                    <input type="checkbox" class="radioButton" name="afternoon">
+                    Afternoons
+                    <input type="checkbox" class="radioButton" name="night">
+                    Nights
+                    <input type="checkbox" class="radioButton" name="weekend">
+                    Weekends
+            </form>
+        </div>
+        <div class="box">
+                <form action="/process" method="POST">
+                        {% csrf_token %}
+                <h3 class="box-header">Web Fundamentals</h3>
+                    <div class="strength-icons">
+                            {% for stack in stacks %}
+                            {% for s in stack.skills.all %}
+                            {% if stack.id == 1 %}
+                                    
+                                    <img src="../../static/nip/img/{{s.id}}.png" alt="{{s.name}}"/>{{s.name}}{{s.id}}<input type="checkbox" name="sCheck" value="{{s.id}}">
+        
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                        
+                    </div>
+            </div>
+            <div class="box">
+                <h3 class="box-header">Python</h3>
+                    <div class="strength-icons">
+                            {% for stack in stacks %}
+                            {% for s in stack.skills.all %}
+                            {% if stack.id == 3 %}
+                           
+                                    <img src="../../static/nip/img/{{s.id}}.png" alt="{{s.name}}"/>{{s.name}}{{s.id}}<input type="checkbox" name="sCheck" value="{{s.id}}">
+
+                                    
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                       
+                    </div>
+            </div>
+            <div class="box">
+                <h3 class="box-header">Ruby on Rails</h3>
+                    <div class="strength-icons">
+                            {% for stack in stacks %}
+                            {% for s in stack.skills.all %}
+                            {% if stack.id == 2 %}
+                       
+                                    <img src="" alt"">{{s.name}}<input type="checkbox" name="sCheck" value="{{s.id}}">
+                             
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                    </div>
+             </div>
+             <div class="box">
+                <h3 class="box-header">MEAN</h3>
+                    <div class="strength-icons">
+                            {% for stack in stacks %}
+                            {% for s in stack.skills.all %}
+                            {% if stack.id == 6 %}
+                           
+                                    <img src="" alt"">{{s.name}}<input type="checkbox" name="sCheck" value="{{s.id}}">
+                                    
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                    </div>
+            </div>
+            <div class="box">
+                <h3 class="box-header">iOS Applications</h3>
+                    <div class="strength-icons">
+                            {% for stack in stacks %}
+                            {% for s in stack.skills.all %}
+                            {% if stack.id == 4 %}
+                          
+                                    <img src="" alt"">{{s.name}}<input type="checkbox" name="sCheck" value="{{s.id}}">
+                                    
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                    </div>
+            </div>
+            <div class="box">
+                <h3 class="box-header">Algorithms</h3>
+                    <div class="strength-icons">
+                            {% for stack in stacks %}
+                            {% for s in stack.skills.all %}
+                            {% if stack.id == 5 %}
+                            
+                            <img src="" alt"">{{s.name}}<input type="checkbox" name="sCheck" value="{{s.id}}">
+                            
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                    </div>
+            </div>
+            <input type="submit" value="Submit">
+        </div>
+        </form>
+    </div> 
+</body>
+</html>   
+
+
+

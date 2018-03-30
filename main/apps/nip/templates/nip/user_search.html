@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NIP</title>
+</head>
+<style>
+        * {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+	.profile, .logout {
+        display: inline;
+		margin-right:20px;
+    }
+	.home{
+        margin-left: 600px;
+        margin-right:20px;
+    }
+	h1 {
+        margin-right: 500px;
+    }
+	.header {
+        height: 30px;
+        display: inline-block;
+        vertical-align: top;
+        padding:30px;
+    }
+    .logo{
+        height:90px;
+    }
+    .search_bar{
+        width: 400px;
+        height: 100px;
+        border-radius:20px;   
+    }
+   .site_search_what{
+        height: 200px;
+        width:400px;
+        display:inline-block;
+        vertical-align: top;
+        text-align:center;
+        margin-left:300px;
+    }
+    h2{
+        display: inline-block;
+    }
+       .submit{
+        display:inline-block;
+        margin-top: 20px;
+        padding: 10px;
+        border-radius:10px;
+        font-size: 30px;
+    }
+</style>
+<body>
+    <img class="logo" src="https://mir-cdn.behance.net/v1/rendition/project_modules/disp/70702f63826029.5abd519e04f31.png" alt="nip_logo"
+    />
+    <div class="header">
+        <a class="home" href="#" class="main">Home</a>
+        <a class="profile" href="#">Profile</a>
+        <a class="logout" href="#">Logout</a>
+    </div>
+    <div class="site_search_what">
+        <h2>Who do you need to find?</h2>
+        <form method="post" action="/searching_user">
+            <input type="search" name="skill_search" class="search_bar" size="100">
+            <button class="submit" id="what" type="submit">Submit</button>
+        </form>
+    </div>
+    
+</body>
+</html>

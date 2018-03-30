@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nip/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <link rel="stylesheet" href="../../static/nip/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Registration: NIP</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="left-LOGO">
+                <p>NIP</p>
+            </div>
+            <div class="right-boxes">
+                <div class="profile-button">
+                    <a href="#">Profile</a>
+                </div>
+                <div class="logout-button">
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <h2>Just a few quick questions...</h2>
+            {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {%endfor%}
+            {%endif%}
+            <form method="post" action="/socials_process">
+                {% csrf_token %}
+                Who are you?
+                <input type="radio" class="radioButton" name="type">
+                    Instructor
+                <input type="radio" class="radioButton" name="type">
+                    Student
+                <br>
+                What are your socials? (paste links to profiles)
+                LinkedIn <input type="text" name="linkedin">
+                Facebook <input type="text" name="facebook">
+                GitHub <input type="text" name="github">
+                Slack <input type="text" name="slack">
+                Instagram <input type="text" name="instagram">
+                Twitter <input type="text" name="twitter">
+                <br>
+                Would you be willing and available to help other students?
+                <input type="radio" class="radioButton" name="help" value="yes">
+                    Yes
+               <input type="radio" class="radioButton" name="help" value="no">
+                No
+                <br>
+                <input type="submit" name="submit" value="Click here to move on">
+            </form>
+    </div>
+</body>
+</html>
