@@ -115,7 +115,7 @@ def searching_user(request):
 		return redirect('/')
 	context = {
 		'searches': request.POST['user_search'],
-		'results': User.objects.filter(first_name=request.POST['user_search'].lower())
+		'results': User.objects.filter(first_name__icontains=request.POST['user_search'].lower())
 	}
 
 	return render(request, 'nip/user_result.html', context)
