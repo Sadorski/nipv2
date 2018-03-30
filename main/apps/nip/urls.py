@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^help_search/?$', views.help_search),
     url(r'^user_search/?$', views.user_search),
     url(r'^searching_user/?$', views.searching_user), 
-    url(r'^searching_help/?$', views.searching_help) 
-    
+    url(r'^searching_help/?$', views.searching_help), 
+    url(r'^logout/?$', views.logout),
+    url(r'^profile/(?P<id>\d+)?$', views.profile),
 ]

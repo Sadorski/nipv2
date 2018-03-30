@@ -13,9 +13,9 @@ def new_user(request):
 		for tag, error in errors.iteritems():
 			messages.error(request, error, extra_tags=tag)
 		return redirect('/')
-	first_name = request.POST['first_name']
-	last_name = request.POST['last_name']
-	email = request.POST['email']
+	first_name = request.POST['first_name'].lower()
+	last_name = request.POST['last_name'].lower()
+	email = request.POST['email'].lower()
 	image = request.POST['picture']
 	password = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
 	User.objects.create(first_name=first_name, last_name=last_name, email=email, image=image,password=password)
@@ -40,12 +40,16 @@ def login(request):
 
 
 def strength(request):
-    context = {
-        'stacks': Stack.objects.all()
-    }
-    return render(request, 'nip/strengths.html', context)
+	if not 'id' in request.session:
+		return redirect('/')
+	context = {
+		'stacks': Stack.objects.all()
+		}
+	return render(request, 'nip/strengths.html', context)
 
 def socials(request):
+	if not 'id' in request.session:
+		return redirect('/')
 	print request.session['id']
 	return render(request, 'nip/registration.html')
 
@@ -83,17 +87,58 @@ def socials_process(request):
 		return redirect('/home')
 
 def home(request):
+	if not 'id' in request.session:
+		return redirect('/')
 	return render(request,'nip/home.html')	 
 
 def process(request):
 	if request.method == "POST":
 		user = User.objects.get(id=request.session["id"])
-		for num in request.POST['sCheck']:
+		strengths = request.POST.getlist('sCheck')
+		for num in strengths:
+			print 1
 			user.strengths.add(num)	 
 		return redirect('/home')
 
 def help_search(request):
+	if not 'id' in request.session:
+		return redirect('/')
 	return render(request, 'nip/help_search.html')
 
 def user_search(request):
+	if not 'id' in request.session:
+		return redirect('/')
 	return render(request, 'nip/user_search.html')
+
+def searching_user(request):
+	if not 'id' in request.session:
+		return redirect('/')
+	context = {
+		'searches': request.POST['user_search'],
+		'results': User.objects.filter(first_name=request.POST['user_search'].lower())
+	}
+
+	return render(request, 'nip/user_result.html', context)
+
+def searching_help(request):
+	if not 'id' in request.session:
+		return redirect('/')
+	strength = Skill.objects.filter(name=request.POST['tutor_search'])
+	context = {
+		'users': User.objects.filter(strengths=strength),
+		'skill': request.POST['tutor_search']
+	}
+	return render(request, 'nip/help_result.html', context)
+
+def profile(request, id):
+	if not 'id' in request.session:
+		return redirect('/')
+	context={
+		'user':User.objects.get(id=id),
+	}
+	return render(request, 'nip/profile.html', context)
+
+def logout(request):
+
+	request.session.clear()
+	return redirect('/')

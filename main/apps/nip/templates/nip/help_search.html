@@ -17,6 +17,7 @@
         <div class="site_search_who">
             <h2>What do you need help with?</h2>
             <form action='/searching_help' method="post">
+                {% csrf_token %}
                 <input type="search" name="tutor_search" class="search_bar" size="100">
                 <button class="submit" type="submit">Submit</button>
             </form>

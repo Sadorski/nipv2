@@ -63,7 +63,8 @@
     <div class="site_search_what">
         <h2>Who do you need to find?</h2>
         <form method="post" action="/searching_user">
-            <input type="search" name="skill_search" class="search_bar" size="100">
+            {% csrf_token %}
+            <input type="search" name="user_search" class="search_bar" size="100">
             <button class="submit" id="what" type="submit">Submit</button>
         </form>
     </div>

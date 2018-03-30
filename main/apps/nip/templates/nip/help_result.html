@@ -59,13 +59,15 @@
 	</div>
 
 	<div class="main_content">
-		<h3>Ninjas who can help you in {TIME} for {PROBLEM}</h3>
+		<h3>Ninjas who can help you with {{skill}}</h3>
 		<div class="results">
+			{% for user in users %}
 			<div >
-				<img class="profile_pic" src="http://www.thelaunchpod.com/wp-content/uploads/2015/02/circular-headshot-.png" alt="profile_pic">
-				<p class="search_result">{NAME} <a href="#">Contact</a></p>
+				<img class="profile_pic" src="{{user.image}}" alt="profile_pic">
+				<a href="/profile/{{user.id}}">{{user.first_name|title}} {{user.last_name|title}}</a>
 				
 			</div>
+			{% endfor %}
 		</div>
 			<!-- <div class="search_result">
 				<img class="profile_pic"src="http://www.thelaunchpod.com/wp-content/uploads/2015/02/circular-headshot-.png">
