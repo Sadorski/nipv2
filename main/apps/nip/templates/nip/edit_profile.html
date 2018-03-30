@@ -16,8 +16,13 @@
             console.log( "ready!" );
             });
     </script>
-	<title>Ninja Profile: {{user.first_name|title}}</title>
+	<title>Edit Profile</title>
 	<style>
+        .btn-left{
+            float: right;
+            margin-right: 100px;
+        }
+
 	 .left-LOGO1{
         margin: -55px 0px 0px -35px;
 }
@@ -66,12 +71,17 @@
             </div>
 			<div class="whole">
 	<div class="left_side">
+        <!-- <form method="post" action='#' class="edit">
+            <input type="text" name="first_name" value="{{user.email}}">
+        </form> -->
+        <input type="submit" value="Edit Profile" class="button btn-left">
 		<h3>{{user.first_name|title}} {{user.last_name|title}}</h3>
 		<img src="{{user.image}}" class="main_img">
 
 		<div class="content">
 		<p>My socials:</p>
-		<a href="mailto:{{user.email}}">{{user.email|title}}</a>
+        <!-- First Name: <input value="{user.first_name|title}}"> -->
+        <a href="mailto:{{user.email}}">{{user.email|title}}</a>
 		<br>
 		<a href="{{user.linkedin}}">linkedin</a> <br>
 		<a href="{{user.github}}">{{user.github|title}}</a> <br>

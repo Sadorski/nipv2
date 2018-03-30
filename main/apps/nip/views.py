@@ -133,11 +133,18 @@ def searching_help(request):
 def profile(request, id):
 	if not 'id' in request.session:
 		return redirect('/')
-	context={
-		'user':User.objects.get(id=id),
-	}
-	return render(request, 'nip/profile.html', context)
-
+	print request.session['id']
+	print id 
+	if int(request.session['id']) != int(id):
+		context = {
+			'user':User.objects.get(id=id),
+		}
+		return render(request, 'nip/profile.html', context)
+	else:
+		context = {
+			'user':User.objects.get(id=id),
+		}
+		return render(request, 'nip/edit_profile.html', context)
 def logout(request):
 
 	request.session.clear()
