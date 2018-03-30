@@ -22,7 +22,7 @@
     <div class="wrapper">
         <div class="header">
             <div class="left-LOGO">
-                <p>NIP</p>
+                <img class="logo" src="https://mir-cdn.behance.net/v1/rendition/project_modules/disp/70702f63826029.5abd519e04f31.png" alt="nip_logo" />
             </div>
             <div class="right-boxes">
                 <div class="profile-button">
@@ -35,8 +35,8 @@
         </div>
         <div class="availability">
             <p>What is your availability?</p>
-            <form action="#" method="POST">
-                Dates:<input type="date" class="date">
+            <br>
+            <form action="/process" method="POST">
                 <input type="checkbox" class="radioButton" name="morning">
                     Mornings
                     <input type="checkbox" class="radioButton" name="afternoon">
@@ -55,9 +55,9 @@
                             {% for stack in stacks %}
                             {% for s in stack.skills.all %}
                             {% if stack.id == 1 %}
-                                    
-                                    <img src="../../static/nip/img/{{s.id}}.png" alt="{{s.name}}"/>{{s.name}}{{s.id}}<input type="checkbox" name="sCheck" value="{{s.id}}">
-        
+                        
+                        <img src="../../static/nip/img/{{s.id}}.png" alt="{{s.name}}"/><p class="test">{{s.name}}</p>
+                        <input type="checkbox" name="sCheck" value="{{s.id}}">
                             {% endif %}
                             {% endfor %}
                             {% endfor %}
@@ -70,10 +70,8 @@
                             {% for stack in stacks %}
                             {% for s in stack.skills.all %}
                             {% if stack.id == 3 %}
-                           
-                                    <img src="../../static/nip/img/{{s.id}}.png" alt="{{s.name}}"/>{{s.name}}{{s.id}}<input type="checkbox" name="sCheck" value="{{s.id}}">
-
-                                    
+                            <img src="../../static/nip/img/{{s.id}}.png" alt="{{s.name}}"/><p class="test">{{s.name}}</p>
+                            <input type="checkbox" name="sCheck" value="{{s.id}}">
                             {% endif %}
                             {% endfor %}
                             {% endfor %}
@@ -86,9 +84,8 @@
                             {% for stack in stacks %}
                             {% for s in stack.skills.all %}
                             {% if stack.id == 2 %}
-                       
-                                    <img src="" alt"">{{s.name}}<input type="checkbox" name="sCheck" value="{{s.id}}">
-                             
+                            <img src="../../static/nip/img/{{s.id}}.png" alt="{{s.name}}"/><p class="test">{{s.name}}</p>
+                            <input type="checkbox" name="sCheck" value="{{s.id}}">
                             {% endif %}
                             {% endfor %}
                             {% endfor %}
@@ -100,9 +97,8 @@
                             {% for stack in stacks %}
                             {% for s in stack.skills.all %}
                             {% if stack.id == 6 %}
-                           
-                                    <img src="" alt"">{{s.name}}<input type="checkbox" name="sCheck" value="{{s.id}}">
-                                    
+                            <img src="../../static/nip/img/{{s.id}}.png" alt="{{s.name}}"/><p class="test">{{s.name}}</p>
+                            <input type="checkbox" name="sCheck" value="{{s.id}}">        
                             {% endif %}
                             {% endfor %}
                             {% endfor %}
@@ -114,9 +110,8 @@
                             {% for stack in stacks %}
                             {% for s in stack.skills.all %}
                             {% if stack.id == 4 %}
-                          
-                                    <img src="" alt"">{{s.name}}<input type="checkbox" name="sCheck" value="{{s.id}}">
-                                    
+                            <img src="../../static/nip/img/{{s.id}}.png" alt="{{s.name}}"/><p class="test">{{s.name}}</p>
+                            <input type="checkbox" name="sCheck" value="{{s.id}}">
                             {% endif %}
                             {% endfor %}
                             {% endfor %}
@@ -128,15 +123,14 @@
                             {% for stack in stacks %}
                             {% for s in stack.skills.all %}
                             {% if stack.id == 5 %}
-                            
-                            <img src="" alt"">{{s.name}}<input type="checkbox" name="sCheck" value="{{s.id}}">
-                            
+                            <img src="../../static/nip/img/{{s.id}}.png" alt="{{s.name}}"/><p class="test">{{s.name}}</p>
+                            <input type="checkbox" name="sCheck" value="{{s.id}}">
                             {% endif %}
                             {% endfor %}
                             {% endfor %}
                     </div>
             </div>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" class="button">
         </div>
         </form>
     </div> 

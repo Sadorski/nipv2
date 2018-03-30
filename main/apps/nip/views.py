@@ -97,3 +97,10 @@ def help_search(request):
 
 def user_search(request):
 	return render(request, 'nip/user_search.html')
+
+def searching_user(request):
+	pass
+
+def searching_help(request):
+	pass
+
